@@ -1,0 +1,136 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: minio-app
+  namespace: minio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: minio-app
+  template:
+    metadata:
+      labels:
+        app: minio-app
+    spec:
+      containers:
+      - name: minio
+        image: quay.io/minio/minio:latest
+        command:
+        - /bin/bash
+        - -c
+        args: 
+        - minio server /home/shared --console-address :9001 --address :9000
+        env:
+        - name: MINIO_ROOT_USER
+          valueFrom:
+            secretKeyRef:
+              name: minio-user-secret
+              key: root_user
+        - name: MINIO_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: minio-user-secret
+              key: root_pw
+        ports:
+        - name: console 
+          containerPort: 9001
+        - name: api
+          containerPort: 9000
+        resources:
+          requests:
+            memory: "1024Mi"
+            cpu: "500m"
+          limits:
+            memory: "2048Mi"
+            cpu: "1000m"
+---
+# test-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-app-service
+  namespace: minio
+spec:
+  selector:
+    app: minio-app
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9001
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-app-service-api
+  namespace: minio
+spec:
+  selector:
+    app: minio-app
+  type: ClusterIP
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9000
+
+
+---
+# test-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minio-app-ingress
+  namespace: minio
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: 1000m
+    nginx.ingress.kubernetes.io/client-max-body-size: 1000m
+    nginx.org/websocket-services: minio-app-service
+spec:
+  tls:
+    - hosts:
+        - minio.smv.pp.ua
+      secretName: minio-cert
+  ingressClassName: nginx
+  rules:
+  - host: minio.smv.pp.ua  # Replace with your domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: minio-app-service
+            port:
+              number: 80
+
+---
+# test-ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: minio-app-ingress-api
+  namespace: minio
+  annotations:
+    # nginx.ingress.kubernetes.io/proxy-body-size: 100m
+    # nginx.ingress.kubernetes.io/client-max-body-size: "100m"
+    # nginx.ingress.kubernetes.io/client-max-body-size: 100m
+    #nginx.org/websocket-services: minio-app-service
+spec:
+  tls:
+    - hosts:
+        - api.minio.smv.pp.ua
+      secretName: minio-cert-api
+  ingressClassName: nginx
+  rules:
+  - host: api.minio.smv.pp.ua  # Replace with your domain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: minio-app-service-api
+            port:
+              number: 80

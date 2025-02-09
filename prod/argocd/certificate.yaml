@@ -1,0 +1,14 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: argocd-cert
+  namespace: argocd
+spec:
+  secretName: argocd-tls-secret # Secret where the certificate will be stored
+  duration: 2160h                 # How long the certificate is valid
+  renewBefore: 1070h              # When to renew the certificate
+  dnsNames:
+    - argocd.smv.pp.ua          # Add additional domains as needed
+  issuerRef:
+    name: letsencrypt-prod      # The name of your ClusterIssuer or Issuer
+    kind: ClusterIssuer 

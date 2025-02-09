@@ -1,0 +1,84 @@
+{
+    "auth": {
+        "accessor": "hmac-sha256:b1796c084b75743d2abb460c00f3ccc56a697c5b17b871fca75508a1f020a1c4",
+        "client_token":"hmac-sha256:94b04ee5c13d8fa20fd72cf00a9ebe1d9055d722dadc3f19587c81279e7b3bc9","display_name":"kubernetes-app-demo-static-app","entity_id":"e0f85186-1494-6644-0df2-9c920e05ff52","metadata": {
+            "role": "role1",
+            "service_account_name": "demo-static-app",
+            "service_account_namespace": "app",
+            "service_account_secret_name": "",
+            "service_account_uid":"cd36e4c2-1137-4241-bcf4-c82cb1699d74"},"policies":["default","my-app-policy"],"policy_results":{"allowed":true,"granting_policies":[{"type":""},{"name":"d
+efault","namespace_id":"root","type":"acl"}]},"token_policies":["default","my-app-policy"],"token_issue_time":"2025-02-07T12: 26: 47Z","token_ttl":86400,"token_type": "service"
+        },
+        "request": {
+            "client_id": "e0f85186-1494-6644-0df2-9c920e05ff52",
+            "client_token":"hmac-sha256:ef9ebcf868dfcad1169e9a67822526c86ab4a698bc4055771bba5ea5a1c26ff6","client_token_accessor":"hmac-sha256:b1796c084b75743d2abb460c00f3ccc56a697c5b17b871fca75508a1f020a1c4","id":"999a1b8e-20ee
+-b379-2d11-47ea7c60c55c","mount_class":"auth","mount_point":"auth/token/","mount_running_version":"v1.18.1+builtin.vault","mount_type":"token","namespa
+ce":{"id":"root"},"operation":"read","path":"auth/token/lookup-self","remote_address":"192.168.164.28","remote_port":56004},"time":"2025-02-07T12: 44: 06
+.939151772Z","type":"request"}{
+                "auth": {
+                    "accessor": "hmac-sha256:b1796c084b75743d2abb460c00f3ccc56a697c5b17b871fca75508a1f020a1c4",
+                    "client_token":"hmac-sha256:94b04ee5c13d8fa20fd72cf00a9ebe1d9055d722dadc3f19587c81279e7b3bc9","display_name":"kubernetes-app-demo-static-app","entity_id":"e0f85186-1494-6644-0df2-9c920e05ff52","metadata": {
+                        "role": "role1",
+                        "service_account_name": "demo-static-app",
+                        "service_account_namespace": "app",
+                        "service_account_secret_name": "",
+                        "service_account_uid":"cd36e4c2-1137-4241-bcf4-c82cb1699d74"},"policies":["default","my-app-policy"],"policy_results":{"allowed":true,"granting_policies":[{"type":""},{"name":"d
+efault","namespace_id":"root","type":"acl"}]},"token_policies":["default","my-app-policy"],"token_issue_time":"2025-02-07T12: 26: 47Z","token_ttl":86400,"token_type": "service"
+                    },
+                    "request": {
+                        "client_id": "e0f85186-1494-6644-0df2-9c920e05ff52",
+                        "client_token":"hmac-sha256:ef9ebcf868dfcad1169e9a67822526c86ab4a698bc4055771bba5ea5a1c26ff6","client_token_accessor":"hmac-sha256:b1796c084b75743d2abb460c00f3ccc56a697c5b17b871fca75508a1f020a1c4","id":"999a1b8e-20ee
+-b379-2d11-47ea7c60c55c","mount_accessor":"auth_token_3e6645ce","mount_class":"auth","mount_point":"auth/token/","mount_running_version":"v1.18.1+built
+in.vault","mount_type":"token","namespace":{"id":"root"},"operation":"read","path":"auth/token/lookup-self","remote_address":"192.168.164.28","remote_p
+ort":56004},"response":{"data":{"accessor":"hmac-sha256:b1796c084b75743d2abb460c00f3ccc56a697c5b17b871fca75508a1f020a1c4","creation_time":1738931207,"c
+reation_ttl":86400,"display_name":"hmac-sha256: 5acd27b2d20569d4a48c838e0fc0070244dc31654244b438f867946501c92e39","entity_id":"hmac-sha256:d19c73e231a4a
+159efa4b0137c3f015e74388c454a54ad31403833eb9d64884d","expire_time":"2025-02-08T12: 26: 47.261995637Z","explicit_max_ttl":0,"id":"hmac-sha256: 94b04ee5c13d
+8fa20fd72cf00a9ebe1d9055d722dadc3f19587c81279e7b3bc9","issue_time":"2025-02-07T12: 26: 47.044716608Z","last_renewal":"2025-02-07T12: 26: 47.261995767Z","la
+st_renewal_time":1738931207,"meta":{"role":"hmac-sha256: 94654d936863cc7f286b0603c5ded10461c1abd4281e8766e8c77f9b88d7a12b","service_account_name":"hmac-
+sha256:aad46aff9f239a17d43fb388f4b4b05290e7f46daa8eb09eb66dff54dab2753b","service_account_namespace":"hmac-sha256: 62132c0278bbfdac3cf6060611cd4f1b8d736
+38e4a61a71f55f6ad88cbdd8a75","service_account_secret_name":"hmac-sha256:f398e54c5f4ca23c22a5254bce20220c898030e437848212ba84ae2f452344f3","service_acco
+unt_uid":"hmac-sha256: 71cdc85e15d2a4c4d32a7037f6a0e3f55f63b3bdba01c95a091c97d2e0029f5a"},"num_uses":0,"orphan":true,"path":"hmac-sha256: 611b0f4542fba19
+52326bddfc02515afe910634573eece689d61bb365bed306a","policies":["hmac-sha256: 6d3569f42e27e206e2ea8a7cf78bc86eb4d3eca540507a062e6f7f658b1701c7","hmac-sha
+256:cdfc643dd7e5300ccc591cc40a03aeaa6952b86c877ce3921ded54ee45777dbd"],"renewable":true,"ttl":85360,"type":"hmac-sha256: 8dc89bf2cfb3f59ef972089365025ee
+1ade577e16bb496bd12c566ee4c4f616a"},"mount_accessor":"auth_token_3e6645ce","mount_class":"auth","mount_point":"auth/token/","mount_running_plugin_versi
+on":"v1.18.1+builtin.vault","mount_type":"token"},"time":"2025-02-07T12: 44: 06.940363606Z","type":"response"}{
+                            "auth": {
+                                "accessor": "hmac-sha256:b1796c084b75743d2abb460c00f3ccc56a697c5b17b871fca75508a1f020a1c4",
+                                "client_token":"hmac-sha256:94b04ee5c13d8fa20fd72cf00a9ebe1d9055d722dadc3f19587c81279e7b3bc9","display_name":"kubernetes-app-demo-static-app","entity_id":"e0f85186-1494-6644-0df2-9c920e05ff52","metadata": {
+                                    "role": "role1",
+                                    "service_account_name": "demo-static-app",
+                                    "service_account_namespace": "app",
+                                    "service_account_secret_name": "",
+                                    "service_account_uid":"cd36e4c2-1137-4241-bcf4-c82cb1699d74"},"policies":["default","my-app-policy"],"policy_results":{"allowed":false},"token_policies":["default","my-app-polic
+y"],"token_issue_time":"2025-02-07T12: 26: 47Z","token_ttl":86400,"token_type":"service"},"error":"1 error occurred:\n\t* permission denied\n\n","request
+":{"client_id":"e0f85186-1494-6644-0df2-9c920e05ff52","client_token":"hmac-sha256:ef9ebcf868dfcad1169e9a67822526c86ab4a698bc4055771bba5ea5a1c26ff6","cl
+ient_token_accessor":"hmac-sha256:b1796c084b75743d2abb460c00f3ccc56a697c5b17b871fca75508a1f020a1c4","id":"0598f5e5-72c0-a04a-1615-cb8f6f8a43c2","mount_
+class":"secret","mount_point":"secret/","mount_running_version":"v0.20.0+builtin","mount_type":"kv","namespace":{"id":"root"},"operation":"read","path": "secret/data/topsecret",
+                                    "remote_address": "192.168.164.28",
+                                    "remote_port": 56004
+                                },
+                                "time": "2025-02-07T12:44:06.965387648Z",
+                                "type": "request"
+                            }
+{
+                                "auth": {
+                                    "accessor": "hmac-sha256:b1796c084b75743d2abb460c00f3ccc56a697c5b17b871fca75508a1f020a1c4",
+                                    "client_token":"hmac-sha256:94b04ee5c13d8fa20fd72cf00a9ebe1d9055d722dadc3f19587c81279e7b3bc9","display_name":"kubernetes-app-demo-static-app","entity_id":"e0f85186-1494-6644-0df2-9c920e05ff52","metadata": {
+                                        "role": "role1",
+                                        "service_account_name": "demo-static-app",
+                                        "service_account_namespace": "app",
+                                        "service_account_secret_name": "",
+                                        "service_account_uid":"cd36e4c2-1137-4241-bcf4-c82cb1699d74"},"policies":["default","my-app-policy"],"policy_results":{"allowed":false},"token_policies":["default","my-app-polic
+y"],"token_issue_time":"2025-02-07T12: 26: 47Z","token_ttl":86400,"token_type":"service"},"error":"1 error occurred:\n\t* permission denied\n\n","request
+":{"client_id":"e0f85186-1494-6644-0df2-9c920e05ff52","client_token":"hmac-sha256:ef9ebcf868dfcad1169e9a67822526c86ab4a698bc4055771bba5ea5a1c26ff6","cl
+ient_token_accessor":"hmac-sha256:b1796c084b75743d2abb460c00f3ccc56a697c5b17b871fca75508a1f020a1c4","id":"0598f5e5-72c0-a04a-1615-cb8f6f8a43c2","mount_
+class":"secret","mount_point":"secret/","mount_running_version":"v0.20.0+builtin","mount_type":"kv","namespace":{"id":"root"},"operation":"read","path": "secret/data/topsecret",
+                                        "remote_address": "192.168.164.28",
+                                        "remote_port": 56004
+                                    },
+                                    "response": {
+                                        "data": {
+                                            "error":"hmac-sha256:f050d664d2fa43d6350981023bcff614ba9566d389acd19542927527bf0e630c"},"mount_class":"secret","mount_point":"secret/","mount_running_plugin_version":"v0.20.0+builtin","mount_type":"kv"},
+                                            "time": "2025-02-07T12:44:06.965779617Z",
+                                            "type": "response"
+                                        }

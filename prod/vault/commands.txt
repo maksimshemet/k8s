@@ -1,0 +1,38 @@
+vault auth enable kubernetes
+kubectl -n vault get secret $(kubectl -n vault get serviceaccount vault-sa -o jsonpath="{.secrets[0].name}") -o jsonpath="{.data.token}" | base64 --decode
+
+
+
+
+
+
+
+vault write auth/kubernetes/config \
+  token_reviewer_jwt=@./vault-sa-token.txt \
+  kubernetes_host=https://kubernetes.default.svc:443 \
+  kubernetes_ca_cert=@./ca.crt
+
+
+vault policy write my-app-policy my-app-policy.hcl
+
+
+vault secrets enable -path=secret kv
+
+vault kv put secret/my-app/config username="myuser" password="mypassword"
+
+
+vault write auth/kubernetes/role/role1 \
+   bound_service_account_names=demo-static-app \
+   bound_service_account_namespaces=app \
+   policies=my-app-policy \
+   audience=vault \
+   ttl=24h
+
+
+helm install vault-secrets-operator hashicorp/vault-secrets-operator -n vault-secrets-operator-system --create-namespace --values ./values.yaml
+helm uninstall vault-secrets-operator -n vault-secrets-operator-system
+
+
+
+
+

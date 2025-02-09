@@ -1,0 +1,30 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: minio-cert
+  namespace: minio
+spec:
+  secretName: minio-cert # Secret where the certificate will be stored
+  duration: 2160h                 # How long the certificate is valid
+  renewBefore: 1070h              # When to renew the certificate
+  dnsNames:
+    - minio.smv.pp.ua          # Add additional domains as needed
+  issuerRef:
+    name: letsencrypt-prod      # The name of your ClusterIssuer or Issuer
+    kind: ClusterIssuer 
+
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: minio-cert-api
+  namespace: minio
+spec:
+  secretName: minio-cert-api # Secret where the certificate will be stored
+  duration: 2160h                 # How long the certificate is valid
+  renewBefore: 1070h              # When to renew the certificate
+  dnsNames:
+    - api.minio.smv.pp.ua          # Add additional domains as needed
+  issuerRef:
+    name: letsencrypt-prod      # The name of your ClusterIssuer or Issuer
+    kind: ClusterIssuer
