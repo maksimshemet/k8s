@@ -1,1 +1,0 @@
-curl --include --no-buffer --header "Connection: Upgrade" --header "Upgrade: websocket" --header "Host: minio.console.homelab.smv.pp.ua:30206" --header "Origin: http://minio.console.homelab.smv.pp.ua:30206" --header "Sec-WebSocket-Version: 13" --header "Sec-WebSocket-Key: mfu0xc7ybPQSUOUaWew7Zg==" http://10.96.223.135:9001/ws/objectManager
